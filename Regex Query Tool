@@ -1,0 +1,23 @@
+import re
+
+# get user input
+text = input("Enter a text string: ")
+pattern = input("Enter a regex pattern: ")
+
+# compile the regular expression
+try:
+    regex = re.compile(pattern)
+except re.error:
+    print("Invalid regular expression!")
+    exit()
+
+# run the regular expression against the source text
+matches = regex.findall(text)
+
+# print the matches or error message
+if matches:
+    print("Matches found:")
+    for match in matches:
+        print(match)
+else:
+    print("No matches found.")
